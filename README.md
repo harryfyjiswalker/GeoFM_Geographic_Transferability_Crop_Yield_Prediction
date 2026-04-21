@@ -1,1 +1,1 @@
-# AlphaEarth_Geographic_Transferability_Crop_Yield_Prediction
+# Exploring Out-of-Domain Generalisation of AlphaEarth embeddings for crop yield prediction
