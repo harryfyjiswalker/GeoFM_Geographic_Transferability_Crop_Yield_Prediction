@@ -77,7 +77,7 @@ Feature instability was then analysed by computing per-dimension correlations wi
 
 ### Dimensionality Reduction and Domain-Adversarial Approaches
 
-Five dimensionality reduction techniques were tested, each sweeping k ∈ {2,4,8,12,16,24,32,42,64}, alongside three neural domain-adversarial approaches. 
+Five dimensionality reduction techniques were tested for the more challenging ETF to GP transfer, each sweeping k ∈ {2,4,8,12,16,24,32,42,64}, alongside three neural domain-adversarial approaches. The reverse GP to ETF transfer was then evaluated for the best performing approach.
 
 | ID  | Method                          | Type                      | Description |
 |:----|:--------------------------------|:--------------------------|:------------|
@@ -94,22 +94,22 @@ Five dimensionality reduction techniques were tested, each sweeping k ∈ {2,4,8
 
 <div align="center">
 
-| Method | Best ETF→GP R² | Best k | Notes |
-|--------|---------------|--------|-------|
-| Raw AEF (baseline) | −0.09 | 64 | — |
-| LASSO selection | 0.164 | 4 | Inconsistent across k |
-| **Stability-based selection** | **0.302** | **32** | Most consistent improvement |
-| Domain-discriminability removal | 0.219 | 12 | Inconsistent |
-| TCA | 0.167 | 4 | Diminishing returns with k |
-| PDANN | 0.070 | — | Marginal improvement |
-| Disentangled PDANN | −0.414 | — | Worse than baseline |
-| DSBN-PDANN | −0.264 | — | Worse than baseline |
+| Method                          | Best ETF→GP R² | Best GP→ETF R² |
+|:--------------------------------|:--------------:|:--------------:|
+| Raw AEF (baseline)              | -0.09          | 0.50           |
+| Stability-based selection       | 0.302 (k=32)   | 0.44 (k=32)    |
+| LASSO selection                 | 0.164 (k=4)    | —              |
+| Domain-discriminability removal | 0.219 (k=12)   | —              |
+| TCA                             | 0.167 (k=4)    | —              |
+| PDANN                           | 0.070          | —              |
+| Disentangled PDANN              | -0.414         | —              |
+| DSBN-PDANN                      | -0.264         | —              |
 
 </div>
 
-Stability-based selection — selecting dimensions with the most consistent correlations with yield across domains — was the most effective post-hoc approach, improving ETF→GP transfer from $R^2 = −0.09$
-to $R^2 = 0.30$. However, all post-hoc approaches showed limited and inconsistent gains, and neural domain adaptation approaches largely failed to improve over baseline. This suggests that if region-specific 
-signals constrain transferability, they are not cleanly separable from agriculturally meaningful ones post-hoc. Indeed, even the 16 dimensions of the "Universal Generalist" subspace retained domain discriminability of 0.93 under application of a logistic regression classifier, indicating that region-specific signals are entangled throughout the embedding space rather than isolated to specific dimensions.
+Stability-based selection — selecting dimensions with the most consistent correlations with yield across domains — was the most effective post-hoc approach, improving ETF to GP transfer from $R^2 = −0.09$ to $R^2 = 0.30$, while maintaining similar GP to ETF transfer performance to the baseline of k=64. However, post-hoc approaches generally showed limited and inconsistent gains, and neural domain adaptation approaches largely failed to improve over baseline. This suggests that if region-specific signals constrain transferability, they are not cleanly separable from agriculturally meaningful ones post-hoc. Indeed, even the 16 dimensions of the "Universal Generalist" subspace retained domain discriminability of 0.93 under application of a logistic regression classifier, indicating that region-specific signals are entangled throughout the embedding space rather than isolated to specific dimensions.
+
+## References
 
 [1] Ma, Y., Shen, Y., Swatantran, A. and Lobell, D.B. (2026) 'Harvesting AlphaEarth: benchmarking the geospatial foundation model for agricultural downstream tasks', International Journal of Applied Earth Observation and Geoinformation, 149, p. 105258. doi: 10.1016/j.jag.2026.105258.\\
 
