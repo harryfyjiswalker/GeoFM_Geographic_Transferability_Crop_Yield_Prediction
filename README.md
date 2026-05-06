@@ -107,7 +107,11 @@ Five dimensionality reduction techniques were tested for the more challenging ET
 
 </div>
 
-Stability-based selection — selecting dimensions with the most consistent correlations with yield across domains — was the most effective post-hoc approach, improving ETF to GP transfer from $R^2 = −0.09$ to $R^2 = 0.30$, while maintaining similar GP to ETF transfer performance to the baseline of k=64. However, post-hoc approaches generally showed limited and inconsistent gains, and neural domain adaptation approaches largely failed to improve over baseline. This suggests that if region-specific signals constrain transferability, they are not cleanly separable from agriculturally meaningful ones post-hoc. Indeed, even the 16 dimensions of the "Universal Generalist" subspace retained domain discriminability of 0.93 under application of a logistic regression classifier, indicating that region-specific signals are entangled throughout the embedding space rather than isolated to specific dimensions.
+Stability-based selection — selecting dimensions with the most consistent correlations with yield across domains — was the most effective post-hoc approach, improving ETF to GP transfer from $R^2 = −0.09$ to $R^2 = 0.30$ while maintaining similar GP to ETF transfer performance to the baseline of k=64. In general, dimensionality reduction methods afforded greater $R^2$ improvements than domain-adversarial networks. However, transfer performance remained substantially lower than in-domain results, suggesting that if region-specific signals constrain transferability, they may not be cleanly separable from agriculturally meaningful ones post-hoc. Indeed, even the 16 dimensions of the "Universal Generalist" subspace retained domain discriminability of 0.93 under application of a logistic regression classifier, indicating that region-specific signals are entangled throughout the embedding space rather than isolated to specific dimensions.
+
+### Limitations
+
+These analyses are based on a single crop and source-target region pair; any improvement observed may well reflect features specifically relevant to the ETF and GP regions rather than universal transferability. Extensions to other crop types and regions is needed to draw reliable conclusions on the utility of dimensionality reduction to out-of-domain generalisation of these embeddings.
 
 ## References
 
