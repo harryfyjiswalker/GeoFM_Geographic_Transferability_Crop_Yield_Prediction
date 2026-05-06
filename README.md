@@ -25,46 +25,20 @@ Using the embedding data provided by the authors ([2]), I replicated their geogr
 
 Before evaluating transfer experiments, we determine in-domain performances using a Random Forest classifier under leave-one-year-out (LOYO) cross validation. The model yields average in-domain $R^2$ of 0.774 and 0.657 for Great Plains and Eastern Temperate Forests, respectively. The LOYO results are displayed below.
 
-<table>
-  <tr>
-    <td valign="top">
+<div align="center">
 
-<b>Great Plains</b><br><br>
+| Year | GP R² | GP RMSE | ETF R² | ETF RMSE |
+|:----:|:-----:|:-------:|:------:|:--------:|
+| 2017 | 0.862 | 1.021   | 0.718  | 0.839    |
+| 2018 | 0.707 | 1.457   | 0.708  | 1.043    |
+| 2019 | 0.809 | 1.020   | 0.492  | 1.018    |
+| 2020 | 0.752 | 1.210   | 0.688  | 0.852    |
+| 2021 | 0.809 | 1.468   | 0.584  | 1.024    |
+| 2022 | 0.781 | 1.519   | 0.709  | 0.911    |
+| 2023 | 0.782 | 1.309   | 0.717  | 0.995    |
+| 2024 | 0.687 | 1.507   | 0.644  | 1.132    |
 
-<table>
-<tr><th>Year</th><th>R²</th><th>RMSE</th></tr>
-<tr><td>2017</td><td>0.862</td><td>1.021</td></tr>
-<tr><td>2018</td><td>0.707</td><td>1.457</td></tr>
-<tr><td>2019</td><td>0.809</td><td>1.020</td></tr>
-<tr><td>2020</td><td>0.752</td><td>1.210</td></tr>
-<tr><td>2021</td><td>0.809</td><td>1.468</td></tr>
-<tr><td>2022</td><td>0.781</td><td>1.519</td></tr>
-<tr><td>2023</td><td>0.782</td><td>1.309</td></tr>
-<tr><td>2024</td><td>0.687</td><td>1.507</td></tr>
-</table>
-
-    </td>
-    <td valign="top">
-
-<b>Eastern Temperate Forests</b><br><br>
-
-<table>
-<tr><th>Year</th><th>R²</th><th>RMSE</th></tr>
-<tr><td>2017</td><td>0.718</td><td>0.839</td></tr>
-<tr><td>2018</td><td>0.708</td><td>1.043</td></tr>
-<tr><td>2019</td><td>0.492</td><td>1.018</td></tr>
-<tr><td>2020</td><td>0.688</td><td>0.852</td></tr>
-<tr><td>2021</td><td>0.584</td><td>1.024</td></tr>
-<tr><td>2022</td><td>0.709</td><td>0.911</td></tr>
-<tr><td>2023</td><td>0.717</td><td>0.995</td></tr>
-<tr><td>2024</td><td>0.644</td><td>1.132</td></tr>
-</table>
-
-    </td>
-  </tr>
-</table>
-
-
+</div>
 
 [1] Ma, Y., Shen, Y., Swatantran, A. and Lobell, D.B. (2026) 'Harvesting AlphaEarth: benchmarking the geospatial foundation model for agricultural downstream tasks', International Journal of Applied Earth Observation and Geoinformation, 149, p. 105258. doi: 10.1016/j.jag.2026.105258.\\
 
