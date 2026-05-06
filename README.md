@@ -1,3 +1,6 @@
 # Exploring Out-of-Domain Generalisation of AlphaEarth embeddings for crop yield prediction
 
-![Alt text](images/StudyAreaGPETF1.png)
+<p align="center">
+  <img src="images/StudyAreaGPETF1.png" alt="Alt text" width="400"/>
+</p>
+
