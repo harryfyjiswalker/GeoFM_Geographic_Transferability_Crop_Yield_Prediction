@@ -25,30 +25,44 @@ Using the embedding data provided by the authors ([2]), I replicated their geogr
 
 Before evaluating transfer experiments, we determine in-domain performances using a Random Forest classifier under leave-one-year-out (LOYO) cross validation. The model yields average in-domain $R^2$ of 0.774 and 0.657 for Great Plains and Eastern Temperate Forests, respectively. The LOYO results are displayed below.
 
-<h3>LOYO Cross-Validation Results</h3>
+<table>
+  <tr>
+    <td valign="top">
 
-<div style="font-size: 12px;">
+<b>Great Plains</b><br><br>
 
-| Region                     | Year | R²    | RMSE  |
-|----------------------------|------|-------|-------|
-| Great Plains               | 2017 | 0.862 | 1.021 |
-| Great Plains               | 2018 | 0.707 | 1.457 |
-| Great Plains               | 2019 | 0.809 | 1.020 |
-| Great Plains               | 2020 | 0.752 | 1.210 |
-| Great Plains               | 2021 | 0.809 | 1.468 |
-| Great Plains               | 2022 | 0.781 | 1.519 |
-| Great Plains               | 2023 | 0.782 | 1.309 |
-| Great Plains               | 2024 | 0.687 | 1.507 |
-| Eastern Temperate Forests  | 2017 | 0.718 | 0.839 |
-| Eastern Temperate Forests  | 2018 | 0.708 | 1.043 |
-| Eastern Temperate Forests  | 2019 | 0.492 | 1.018 |
-| Eastern Temperate Forests  | 2020 | 0.688 | 0.852 |
-| Eastern Temperate Forests  | 2021 | 0.584 | 1.024 |
-| Eastern Temperate Forests  | 2022 | 0.709 | 0.911 |
-| Eastern Temperate Forests  | 2023 | 0.717 | 0.995 |
-| Eastern Temperate Forests  | 2024 | 0.644 | 1.132 |
+<table>
+<tr><th>Year</th><th>R²</th><th>RMSE</th></tr>
+<tr><td>2017</td><td>0.862</td><td>1.021</td></tr>
+<tr><td>2018</td><td>0.707</td><td>1.457</td></tr>
+<tr><td>2019</td><td>0.809</td><td>1.020</td></tr>
+<tr><td>2020</td><td>0.752</td><td>1.210</td></tr>
+<tr><td>2021</td><td>0.809</td><td>1.468</td></tr>
+<tr><td>2022</td><td>0.781</td><td>1.519</td></tr>
+<tr><td>2023</td><td>0.782</td><td>1.309</td></tr>
+<tr><td>2024</td><td>0.687</td><td>1.507</td></tr>
+</table>
 
-</div>
+    </td>
+    <td valign="top">
+
+<b>Eastern Temperate Forests</b><br><br>
+
+<table>
+<tr><th>Year</th><th>R²</th><th>RMSE</th></tr>
+<tr><td>2017</td><td>0.718</td><td>0.839</td></tr>
+<tr><td>2018</td><td>0.708</td><td>1.043</td></tr>
+<tr><td>2019</td><td>0.492</td><td>1.018</td></tr>
+<tr><td>2020</td><td>0.688</td><td>0.852</td></tr>
+<tr><td>2021</td><td>0.584</td><td>1.024</td></tr>
+<tr><td>2022</td><td>0.709</td><td>0.911</td></tr>
+<tr><td>2023</td><td>0.717</td><td>0.995</td></tr>
+<tr><td>2024</td><td>0.644</td><td>1.132</td></tr>
+</table>
+
+    </td>
+  </tr>
+</table>
 
 
 
