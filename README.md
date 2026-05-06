@@ -55,16 +55,23 @@ The transfer results with full dimensionality are then evaluated. Similar perfor
 
 ### Quantifying Domain Shift
 
-Before attempting dimensionality reduction, the degree of domain shift in the AEF embedding space was analysed. We train a logistic classifier on the 64-dimensional AEF embeddings; this achieved accuracy of 0.95 in discerning ETF from GP counties, confirming strong geographic structure in the embedding space. 
+Before attempting dimensionality reduction, the degree of domain shift in the AEF embedding space was analysed. We train a logistic classifier on the 64-dimensional AEF embeddings; this achieved accuracy of 0.95 in discerning ETF from GP counties. This suggests strong geographic structure in the embedding space, as visualised by the tSNE plot below.
+
+<p align="center">
+  <img src="images/tSNE.png" alt="Alt text" width="500"/>
+</p>
+
+Feature instability was then analysed by computing per-dimension correlations with yield for each region, before ranking dimensions by correlation difference, permutation importance shift, Wasserstein distance between domain distributions, and sign flips in yield correlation direction. The results for the five least stable features across the transfer gradient are detailed below. In general, there appears to be significant variation between locations in the most predictive bands/features of yield.
+
+| Feature | Imp (ETF) | Imp (GP) | Corr (ETF) | Corr (GP) | Corr Diff | Imp Diff | Sign Flip |
+|:--------|:---------:|:--------:|:----------:|:---------:|:---------:|:--------:|:---------:|
+| A20     | 0.002553  | 0.022860 | -0.422578  | 0.529961  | 0.952539  | 0.020307 | True      |
+| A55     | 0.007588  | 0.008343 | -0.233398  | 0.633708  | 0.867106  | 0.000755 | True      |
+| A56     | 0.008993  | 0.004545 | -0.366523  | 0.459605  | 0.826129  | 0.004448 | True      |
+| A41     | 0.004524  | 0.005940 | -0.267620  | 0.432698  | 0.700318  | 0.001415 | True      |
+| A39     | 0.003153  | 0.002705 | -0.426229  | 0.261746  | 0.687975  | 0.000447 | True      |
 
 
-
-
-
-
-
-
-We then computed per-dimension correlations with yield for each region, ranking dimensions by correlation difference, permutation importance shift, Wasserstein distance between domain distributions, and sign flips in yield correlation direction.
 
 
 
