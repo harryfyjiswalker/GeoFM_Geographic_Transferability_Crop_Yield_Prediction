@@ -6,7 +6,7 @@
 
 This project explored the effect of reducing the dimensionality of AlphaEarth embeddings on the transferability of crop yield prediction models, inspired by the finding of Ma _et al._ (2026) that models trained on the full 64-dimensional feature set exhibit significant performance degradation under performance transfer across the US Corn Belt.[1] 
 
-##Study Area
+## Study Area
 
 Using the embedding data provided by the authors ([2]), I replicated their geographic split into the Great Plains and Eastern Temperate Forests ecoregions using the EPA Level I ecoregion boundaries.
 
