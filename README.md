@@ -63,6 +63,8 @@ Before attempting dimensionality reduction, the degree of domain shift in the AE
 
 Feature instability was then analysed by computing per-dimension correlations with yield for each region, before ranking dimensions by correlation difference, permutation importance shift, Wasserstein distance between domain distributions, and sign flips in yield correlation direction. The results for the five least stable features across the transfer gradient are detailed below. In general, there appears to be significant variation between locations in the most predictive bands/features of yield.
 
+<div align="center">
+  
 | Feature | Imp (ETF) | Imp (GP) | Corr (ETF) | Corr (GP) | Corr Diff | Imp Diff | Sign Flip |
 |:--------|:---------:|:--------:|:----------:|:---------:|:---------:|:--------:|:---------:|
 | A20     | 0.002553  | 0.022860 | -0.422578  | 0.529961  | 0.952539  | 0.020307 | True      |
@@ -71,8 +73,33 @@ Feature instability was then analysed by computing per-dimension correlations wi
 | A41     | 0.004524  | 0.005940 | -0.267620  | 0.432698  | 0.700318  | 0.001415 | True      |
 | A39     | 0.003153  | 0.002705 | -0.426229  | 0.261746  | 0.687975  | 0.000447 | True      |
 
+</div>
 
+### Dimensionality Reduction Approaches
 
+Five approaches were evaluated, each sweeping k ∈ {2,4,8,12,16,24,32,42,64}  selected dimensions:
+
+**(a) LASSO-based selection** — here dimensions are ranked by absolute coefficient magnitude from LassoCV fitted on source domain. 
+
+**(b) Stability-based selection** — here, dimensions are ranked by smallest cross-domain correlation difference (Corr_Diff). This approach therefore selects dimensions whose relationship with yield is most consistent across domains.
+
+**(c) Domain-discriminability removal** — here, dimensions are ranked by least contribution to domain classification (logistic regression coefficients). This removes the most "geographically identifying" dimensions.
+
+**(d) Transfer Component Analysis (TCA)** — kernel PCA is applied jointly to source and target embeddings to find a shared low-dimensional subspace.
+
+**(e) Universal Generalist Subspace** — here, permutation importance is computed bidirectionally (ETF→GP and GP→ETF). Dimensions contributing positively in both directions are classified as "Universal Generalists" (16 identified).
+
+### Domain-Adversarial Approaches
+
+Three neural domain adaptation approaches were evaluated:
+
+**(f) PDANN** — Partial Domain-Adversarial Neural Network with gradient reversal layer, involving Gaussian likelihood weighting of source samples by estimated target distribution.
+
+**(g) Disentangled PDANN** — Separate shared and private encoder branches with orthogonality loss to scrub geographic identity from the shared representation.
+
+**(h) DSBN-PDANN** — Domain-Specific Batch Normalisation combined with adversarial training.
+
+## Results
 
 
 [1] Ma, Y., Shen, Y., Swatantran, A. and Lobell, D.B. (2026) 'Harvesting AlphaEarth: benchmarking the geospatial foundation model for agricultural downstream tasks', International Journal of Applied Earth Observation and Geoinformation, 149, p. 105258. doi: 10.1016/j.jag.2026.105258.\\
