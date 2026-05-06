@@ -40,7 +40,7 @@ Before evaluating transfer experiments, the in-domain performances are determine
 
 </div>
 
-The transfer results with the full 64-dimensional embeddings are then evaluated. Similar performance degradation to Ma _et al._ is observed.
+The transfer results with full dimensionality are then evaluated. Similar performance degradation to Ma _et al._ is observed.
 
 <div align="center">
 
@@ -55,7 +55,16 @@ The transfer results with the full 64-dimensional embeddings are then evaluated.
 
 ### Quantifying Domain Shift
 
-Before attempting dimensionality reduction, the degree of domain shift in the AEF embedding space was analysed:
+Before attempting dimensionality reduction, the degree of domain shift in the AEF embedding space was analysed. We train a logistic classifier on the 64-dimensional AEF embeddings; this achieved accuracy of 0.95 in discerning ETF from GP counties, confirming strong geographic structure in the embedding space. 
+
+
+
+
+
+
+
+
+We then computed per-dimension correlations with yield for each region, ranking dimensions by correlation difference, permutation importance shift, Wasserstein distance between domain distributions, and sign flips in yield correlation direction.
 
 
 
