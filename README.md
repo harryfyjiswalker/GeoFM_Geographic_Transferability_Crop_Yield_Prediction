@@ -25,40 +25,30 @@ Using the embedding data provided by the authors ([2]), I replicated their geogr
 
 Before evaluating transfer experiments, we determine in-domain performances using a Random Forest classifier under leave-one-year-out (LOYO) cross validation. The model yields average in-domain $R^2$ of 0.774 and 0.657 for Great Plains and Eastern Temperate Forests, respectively. The LOYO results are displayed below.
 
-<table>
-  <tr>
-    <td valign="top">
+<h3>LOYO Cross-Validation Results</h3>
 
-### Great Plains
-| Year | R²    | RMSE  |
-|------|-------|-------|
-| 2017 | 0.862 | 1.021 |
-| 2018 | 0.707 | 1.457 |
-| 2019 | 0.809 | 1.020 |
-| 2020 | 0.752 | 1.210 |
-| 2021 | 0.809 | 1.468 |
-| 2022 | 0.781 | 1.519 |
-| 2023 | 0.782 | 1.309 |
-| 2024 | 0.687 | 1.507 |
+<div style="font-size: 12px;">
 
-    </td>
-    <td valign="top">
+| Region                     | Year | R²    | RMSE  |
+|----------------------------|------|-------|-------|
+| Great Plains               | 2017 | 0.862 | 1.021 |
+| Great Plains               | 2018 | 0.707 | 1.457 |
+| Great Plains               | 2019 | 0.809 | 1.020 |
+| Great Plains               | 2020 | 0.752 | 1.210 |
+| Great Plains               | 2021 | 0.809 | 1.468 |
+| Great Plains               | 2022 | 0.781 | 1.519 |
+| Great Plains               | 2023 | 0.782 | 1.309 |
+| Great Plains               | 2024 | 0.687 | 1.507 |
+| Eastern Temperate Forests  | 2017 | 0.718 | 0.839 |
+| Eastern Temperate Forests  | 2018 | 0.708 | 1.043 |
+| Eastern Temperate Forests  | 2019 | 0.492 | 1.018 |
+| Eastern Temperate Forests  | 2020 | 0.688 | 0.852 |
+| Eastern Temperate Forests  | 2021 | 0.584 | 1.024 |
+| Eastern Temperate Forests  | 2022 | 0.709 | 0.911 |
+| Eastern Temperate Forests  | 2023 | 0.717 | 0.995 |
+| Eastern Temperate Forests  | 2024 | 0.644 | 1.132 |
 
-### Eastern Temperate Forests
-| Year | R²    | RMSE  |
-|------|-------|-------|
-| 2017 | 0.718 | 0.839 |
-| 2018 | 0.708 | 1.043 |
-| 2019 | 0.492 | 1.018 |
-| 2020 | 0.688 | 0.852 |
-| 2021 | 0.584 | 1.024 |
-| 2022 | 0.709 | 0.911 |
-| 2023 | 0.717 | 0.995 |
-| 2024 | 0.644 | 1.132 |
-
-    </td>
-  </tr>
-</table>
+</div>
 
 
 
