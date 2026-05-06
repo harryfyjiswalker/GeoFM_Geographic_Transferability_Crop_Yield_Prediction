@@ -113,6 +113,10 @@ Stability-based selection — selecting dimensions with the most consistent corr
 
 These analyses are based on a single crop and source-target region pair; any improvement observed may well reflect features specifically relevant to the ETF and GP regions rather than universal transferability. Extensions to other crop types and regions is needed to draw reliable conclusions on the utility of dimensionality reduction to out-of-domain generalisation of these embeddings.
 
+### Code
+
+The code to reproduce the experiments is available [here](AEF_DimRed_Code.ipynb). The dataset used is available at the Ma _et al._ (2026) [Github](https://github.com/yuchima8/Harvest_AlphaEarth) page.
+
 ## References
 
 [1] Ma, Y., Shen, Y., Swatantran, A. and Lobell, D.B. (2026) 'Harvesting AlphaEarth: benchmarking the geospatial foundation model for agricultural downstream tasks', International Journal of Applied Earth Observation and Geoinformation, 149, p. 105258. doi: 10.1016/j.jag.2026.105258.\\
