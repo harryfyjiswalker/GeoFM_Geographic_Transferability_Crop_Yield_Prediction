@@ -75,32 +75,41 @@ Feature instability was then analysed by computing per-dimension correlations wi
 
 </div>
 
-### Dimensionality Reduction Approaches
+### Dimensionality Reduction and Domain-Adversarial Approaches
 
-Five approaches were evaluated, each sweeping k ∈ {2,4,8,12,16,24,32,42,64}  selected dimensions:
+Five dimensionality reduction techniques were tested, each sweeping k ∈ {2,4,8,12,16,24,32,42,64}, alongside three neural domain-adversarial approaches. 
 
-**(a) LASSO-based selection** — here dimensions are ranked by absolute coefficient magnitude from LassoCV fitted on source domain. 
+| ID  | Method                          | Type                      | Description |
+|:----|:--------------------------------|:--------------------------|:------------|
+| (a) | LASSO-based selection           | Feature Selection         | Dimensions ranked by absolute coefficient magnitude from LassoCV fitted on source domain |
+| (b) | Stability-based selection       | Feature Selection         | Dimensions ranked by smallest cross-domain correlation difference (Corr_Diff), selecting features most consistent across domains |
+| (c) | Domain-discriminability removal | Feature Selection         | Dimensions ranked by least contribution to domain classification (logistic regression), removing geographically identifying features |
+| (d) | Transfer Component Analysis     | Subspace Method           | Kernel PCA applied jointly to source and target embeddings to learn a shared low-dimensional subspace |
+| (e) | Universal Generalist Subspace   | Feature Selection         | Features with positive permutation importance in both ETF→GP and GP→ETF transfers (16 identified) |
+| (f) | PDANN                          | Domain Adaptation (NN)    | Partial domain-adversarial neural network with gradient reversal and Gaussian likelihood weighting |
+| (g) | Disentangled PDANN             | Domain Adaptation (NN)    | Separate shared/private encoders with orthogonality loss to remove geographic information |
+| (h) | DSBN-PDANN                     | Domain Adaptation (NN)    | Domain-specific batch normalization combined with adversarial training |
 
-**(b) Stability-based selection** — here, dimensions are ranked by smallest cross-domain correlation difference (Corr_Diff). This approach therefore selects dimensions whose relationship with yield is most consistent across domains.
+## Results and Discussion
 
-**(c) Domain-discriminability removal** — here, dimensions are ranked by least contribution to domain classification (logistic regression coefficients). This removes the most "geographically identifying" dimensions.
+<div align="center">
 
-**(d) Transfer Component Analysis (TCA)** — kernel PCA is applied jointly to source and target embeddings to find a shared low-dimensional subspace.
+| Method | Best ETF→GP R² | Best k | Notes |
+|--------|---------------|--------|-------|
+| Raw AEF (baseline) | −0.09 | 64 | — |
+| LASSO selection | 0.164 | 4 | Inconsistent across k |
+| **Stability-based selection** | **0.302** | **32** | Most consistent improvement |
+| Domain-discriminability removal | 0.219 | 12 | Inconsistent |
+| TCA | 0.167 | 4 | Diminishing returns with k |
+| PDANN | 0.070 | — | Marginal improvement |
+| Disentangled PDANN | −0.414 | — | Worse than baseline |
+| DSBN-PDANN | −0.264 | — | Worse than baseline |
 
-**(e) Universal Generalist Subspace** — here, permutation importance is computed bidirectionally (ETF→GP and GP→ETF). Dimensions contributing positively in both directions are classified as "Universal Generalists" (16 identified).
+</div>
 
-### Domain-Adversarial Approaches
-
-Three neural domain adaptation approaches were evaluated:
-
-**(f) PDANN** — Partial Domain-Adversarial Neural Network with gradient reversal layer, involving Gaussian likelihood weighting of source samples by estimated target distribution.
-
-**(g) Disentangled PDANN** — Separate shared and private encoder branches with orthogonality loss to scrub geographic identity from the shared representation.
-
-**(h) DSBN-PDANN** — Domain-Specific Batch Normalisation combined with adversarial training.
-
-## Results
-
+Stability-based selection — selecting dimensions with the most consistent correlations with yield across domains — was the most effective post-hoc approach, improving ETF→GP transfer from $R^2 = −0.09$
+to $R^2 = 0.30$. However, all post-hoc approaches showed limited and inconsistent gains, and neural domain adaptation approaches largely failed to improve over baseline. This suggests that if region-specific 
+signals constrain transferability, they are not cleanly separable from agriculturally meaningful ones post-hoc. Indeed, even the 16 dimensions of the "Universal Generalist" subspace retained domain discriminability of 0.93 under application of a logistic regression classifier, indicating that region-specific signals are entangled throughout the embedding space rather than isolated to specific dimensions.
 
 [1] Ma, Y., Shen, Y., Swatantran, A. and Lobell, D.B. (2026) 'Harvesting AlphaEarth: benchmarking the geospatial foundation model for agricultural downstream tasks', International Journal of Applied Earth Observation and Geoinformation, 149, p. 105258. doi: 10.1016/j.jag.2026.105258.\\
 
