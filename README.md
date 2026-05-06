@@ -1,19 +1,25 @@
 # Exploring Out-of-Domain Generalisation of AlphaEarth embeddings for crop yield prediction
 
+<p align="center">
+  <img src="images/StudyAreaGPETF1.png" alt="Alt text" width="500"/>
+</p>
+
 This project explored the effect of reducing the dimensionality of AlphaEarth embeddings on the transferability of crop yield prediction models, inspired by the finding of Ma _et al._ (2026) that models trained on the full 64-dimensional feature set exhibit significant performance degradation under performance transfer across the US Corn Belt.[1] 
 
 ##Study Area
 
 Using the embedding data provided by the authors ([2]), I replicated their geographic split into the Great Plains and Eastern Temperate Forests ecoregions using the EPA Level I ecoregion boundaries.
 
-| Category        | Region                     | Observations              | Mean Yield (t/ha) |
-|----------------|---------------------------|---------------------------|-------------------|
-| Source (East)  | Eastern Temperate Forests | 2,608 county-year         | 12.13             |
-| Target (West)  | Great Plains              | 3,459 county-year         | 10.83             |
+<div align="center">
 
-<p align="center">
-  <img src="images/StudyAreaGPETF1.png" alt="Alt text" width="500"/>
-</p>
+| Category        | Region                     | Observations      | Mean Yield (t/ha) |
+|----------------|---------------------------|-------------------|-------------------|
+| Source (East)  | Eastern Temperate Forests | 2,608 county-year | 12.13             |
+| Target (West)  | Great Plains              | 3,459 county-year | 10.83             |
+
+</div>
+
+
 
 
 
